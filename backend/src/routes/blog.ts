@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate"; 
-
+import { createblogInput,updateblogInput } from "@siddharthmehra/mid11common";
 const blogRouter=new Hono<{
     Bindings:{
       DATABASE_URL:string;

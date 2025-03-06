@@ -11,6 +11,7 @@
   "dependencies": {
     "@prisma/client": "^6.4.1",
     "@prisma/extension-accelerate": "^1.2.2",
+    "@siddharthmehra/mid11common": "^1.0.1",
     "hono": "^4.7.2",
     "prisma": "^6.4.1",
     "zod": "^3.24.2"
