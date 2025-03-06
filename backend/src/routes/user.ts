@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client/edge';
 import { withAccelerate } from '@prisma/extension-accelerate';
 import { Hono } from 'hono';
 import {sign} from 'hono/jwt';
+import {signupInput,signinInput} from '../zod';
 
 const userRouter=new Hono<{
     Bindings:{
@@ -10,11 +11,15 @@ const userRouter=new Hono<{
 }>();
 
 userRouter.post('/signup', async (c) => {
+  const body=await c.req.json();
+  const {success}=signupInput.safeParse(body);
+  if(!success){
+    c.status(403);
+    return c.json({error:"invalid input"});
+  }
     const prisma = new PrismaClient({
       datasourceUrl:c.env.DATABASE_URL,
     }).$extends(withAccelerate())
-  
-    const body=await c.req.json();
     console.log("Attempting to create user:",body);
     try {
         const user=await prisma.user.create({
@@ -33,13 +38,18 @@ userRouter.post('/signup', async (c) => {
       }
     }
   );
-  
+
 userRouter.post('/signin',async (c) => {
+  const body=await c.req.json();
+  const {success}=signinInput.safeParse(body);
+  if(!success){
+    c.status(403);
+    return c.json({error:"invalid input"});
+  }
       const prisma = new PrismaClient({
       datasourceUrl:c.env.DATABASE_URL,
     }).$extends(withAccelerate())
   
-    const body=await c.req.json();
     const user=await prisma.user.findFirst({
       where:{
         email:body.email,
@@ -51,7 +61,6 @@ userRouter.post('/signin',async (c) => {
       c.status(403);
       return c.json({error:"user not found"})
     }
-  
     const jwt=await sign({id:user.id},'secret');
     return c.json({jwt});
   });
