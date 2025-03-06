@@ -1,13 +1,21 @@
+<<<<<<< HEAD
 # Production
 dist/
 build/
 
 # Development
+=======
+# prod
+dist/
+
+# dev
+>>>>>>> 4de71148ee7b22c104005ff2becdbaaa436be159
 .yarn/
 !.yarn/releases
 .vscode/*
 !.vscode/launch.json
 !.vscode/*.code-snippets
+<<<<<<< HEAD
 .idea/
 
 # Dependencies
@@ -20,15 +28,39 @@ node_modules/
 .dev.vars
 
 # Logs
+=======
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/shelf
+
+# deps
+node_modules/
+.wrangler
+
+# env
+.env
+.env.production
+.dev.vars
+
+# logs
+>>>>>>> 4de71148ee7b22c104005ff2becdbaaa436be159
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
 
 # System Files
 .DS_Store
 Thumbs.db
 
 # Config Files
+=======
+pnpm-debug.log*
+lerna-debug.log*
+
+# misc
+.DS_Store
+>>>>>>> 4de71148ee7b22c104005ff2becdbaaa436be159
 wrangler.jsonc

@@ -34,4 +34,8 @@ model Post{
   authorId  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> 4de71148ee7b22c104005ff2becdbaaa436be159
