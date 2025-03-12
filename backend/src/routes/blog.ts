@@ -21,6 +21,17 @@ blogRouter.get('/bulk',async(c)=>{
       const posts=await prisma.post.findMany({
           where:{
               authorId:authorId,
+          },
+          select:{
+            title:true,
+            id:true,
+            content:true,
+            createdAt:true,
+            author:{
+              select:{
+                name:true
+              }
+            }
           }
       });
       return c.json(posts);
@@ -32,6 +43,11 @@ blogRouter.get('/bulk',async(c)=>{
  
   //update
 blogRouter.put('/',async (c) => {
+  const updateBody = updateblogInput.parse(await c.req.json());
+    
+    if (!updateBody) {
+      return c.json({ message: 'No update body provided' }, 400);
+    }
     const prisma = new PrismaClient({
       datasourceUrl:c.env.DATABASE_URL,
     }).$extends(withAccelerate())
@@ -69,6 +85,16 @@ blogRouter.get('/:id',async (c) => {
             where:{
                 authorId:c.get('userId'),
                 id:postId,
+            },
+            select:{
+              title:true,
+              content:true,
+              createdAt:true,
+              author:{
+                select:{
+                  name:true
+                }
+              }
             }
         });
         return c.json(post);
@@ -80,6 +106,12 @@ blogRouter.get('/:id',async (c) => {
   
   //create blog
 blogRouter.post('/create',async (c) => {
+  const body=await c.req.json();
+  const {success}=createblogInput.safeParse(body);
+    if(!success){
+      c.status(403);
+      return c.json({error:"invalid input"});
+    }
     const prisma = new PrismaClient({
       datasourceUrl:c.env.DATABASE_URL,
     }).$extends(withAccelerate())

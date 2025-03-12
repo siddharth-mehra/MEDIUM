@@ -19,6 +19,7 @@ async function blogmiddleware(c:Context<
   console.log("Token:",token);
   if(!token){
     c.status(403);
+    console.log(token)
     return c.json({error:"token not found"});
   }
   try{

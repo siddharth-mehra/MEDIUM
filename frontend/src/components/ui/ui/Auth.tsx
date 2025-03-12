@@ -17,17 +17,17 @@ const Auth = ({type}:{type:"Signup" | "Signin"}) => {
 
     async function sendRequest(){
       try{
-        const response=await axios.post(`${BACKEND_URL}/api/v1/user/${type}`,postInputs)
+        const response=await axios.post(`${BACKEND_URL}/api/v1/user/${type==="Signup"?"signup":"signin"}`,postInputs)
         const jwt=response.data;
         localStorage.setItem("token",jwt);
         navigate("/blogs")
       }catch(e){
-        console.log()
+        console.log(e)
       }
     } 
 
     return (
-    <div className='flex flex-col p-8 shadow-xl border-1 rounded-sm max-w-[500px]'>
+    <div className='flex flex-col p-8 shadow-xl border-1 border-white rounded-sm max-w-[500px]'>
       <h2 className='text-3xl font-extrabold'>
         Create an Account
       </h2>

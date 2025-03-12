@@ -6,11 +6,14 @@
     "deploy:prod": "wrangler deploy --env prod --minify",
     "build": "wrangler build",
     "test": "jest",
-    "generate": "prisma generate"
+    "generate": "prisma generate",
+    "generate:prod": "prisma generate --no-engine"
   },
   "dependencies": {
     "@prisma/client": "^6.4.1",
     "@prisma/extension-accelerate": "^1.2.2",
+    "@siddharthmehra/mid11common": "^1.0.1",
+    "cors": "^2.8.5",
     "hono": "^4.7.2",
     "prisma": "^6.4.1"
   },

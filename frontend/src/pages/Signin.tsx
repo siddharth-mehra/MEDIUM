@@ -1,4 +1,3 @@
-import React from 'react'
 import Quote from '@/components/ui/ui/Quote'
 import Auth from '@/components/ui/ui/Auth'
 export const Signin = () => {

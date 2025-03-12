@@ -1,3 +1,4 @@
+
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "backend",
@@ -13,7 +14,7 @@
   "kv_namespaces": [
     {
       "binding": "MY_KV_NAMESPACE",
-      "id": "fd45dd9ed8f84a308bd899df2a8922cd"  // Production KV namespace
+      "id": "fd45dd9ed8f84a308bd899df2a8922cd"  
     }
   ],
   "vars": {
@@ -22,16 +23,27 @@
   "env": {
     "dev": {
       "vars": {
-    "DATABASE_URL": "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMTE0MDlhMGYtMGRlNC00Mzg1LTg2NTMtNTY1NTYwNzkxODc5IiwidGVuYW50X2lkIjoiZDk4YTgzNTJhOTQ0MGM3YzI1OTJmYmNmOWNiZGVlYjg3NDYzMTNkYmZjMTA3ZGMwN2VhZjhjZjA0OWRiYjlkNyIsImludGVybmFsX3NlY3JldCI6ImQ0YjE1YTgzLTU3MTYtNDI5Ni05YzE3LWNlZTczMzFmYTZhMCJ9.5QA-X0bKKtJOITP9pk5V1v6YiUGWa7NnYh2xPKWD6ts"
-  },
-  "kv_namespaces": [
+        "DATABASE_URL": "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMTE0MDlhMGYtMGRlNC00Mzg1LTg2NTMtNTY1NTYwNzkxODc5IiwidGVuYW50X2lkIjoiZDk4YTgzNTJhOTQ0MGM3YzI1OTJmYmNmOWNiZGVlYjg3NDYzMTNkYmZjMTA3ZGMwN2VhZjhjZjA0OWRiYjlkNyIsImludGVybmFsX3NlY3JldCI6ImQ0YjE1YTgzLTU3MTYtNDI5Ni05YzE3LWNlZTczMzFmYTZhMCJ9.5QA-X0bKKtJOITP9pk5V1v6YiUGWa7NnYh2xPKWD6ts"
+      },
+      "kv_namespaces": [
         {
           "binding": "MY_KV_NAMESPACE",
           "id": "fd45dd9ed8f84a308bd899df2a8922cd"
         }
       ]
+    },
+    "prod": {
+      "vars": {
+        "DATABASE_URL": "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMTE0MDlhMGYtMGRlNC00Mzg1LTg2NTMtNTY1NTYwNzkxODc5IiwidGVuYW50X2lkIjoiZDk4YTgzNTJhOTQ0MGM3YzI1OTJmYmNmOWNiZGVlYjg3NDYzMTNkYmZjMTA3ZGMwN2VhZjhjZjA0OWRiYjlkNyIsImludGVybmFsX3NlY3JldCI6ImQ0YjE1YTgzLTU3MTYtNDI5Ni05YzE3LWNlZTczMzFmYTZhMCJ9.5QA-X0bKKtJOITP9pk5V1v6YiUGWa7NnYh2xPKWD6ts"
+      },
+      "kv_namespaces": [
+        {
+          "binding": "MY_KV_NAMESPACE",
+          "id": "fd45dd9ed8f84a308bd899df2a8922cd" 
+        }
+      ]
     }
-    
   }
 }
+
 

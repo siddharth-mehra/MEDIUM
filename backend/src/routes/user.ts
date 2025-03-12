@@ -34,6 +34,7 @@ userRouter.post('/signup', async (c) => {
         return c.json({jwt:token});
         } catch (error) {
         c.status(403);
+        console.log(error)
         return c.json({error:"user already exists"}); 
       }
     }
