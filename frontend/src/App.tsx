@@ -7,23 +7,17 @@ import './App.css'
 import Navbar from './components/ui/ui/Navbar.tsx'
 import CustomEditor from './components/ui/ui/Publish.tsx'
 import Homepage from './pages/Home/Homepage.tsx'
-import logoimage from './assets/logoimage.png'
+import {BackgroundBoxesDemo} from './pages/Home/Background.tsx'
 
 function App() {
   return(
     <BrowserRouter>
       <div className='min-h-screen w-full relative bg-gradient-to-br from-indigo-500 via-white to-indigo-500  dark:from-zinc-900 dark:via-white dark:to-zinc-900'>
         {/* Background Image Container */}
-        <div 
-          className='fixed inset-0 z-0 pointer-events-none opacity-30 '
-          style={{
-            backgroundImage: `url(${logoimage})`,
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'contain'
-          }}
-        />
         
+        <div className='fixed inset-0 z-0 pointer-events-none'>
+          <BackgroundBoxesDemo/>
+        </div>
         {/* Main Content */}
         <Navbar/>
         <div className='w-full max-w-[1280px] mx-auto pt-20 relative z-10'>
