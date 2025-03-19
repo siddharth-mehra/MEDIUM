@@ -20,7 +20,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="fixed top-0 right-0 left-0 bg-white shadow-md z-[999]">
+        <div className="fixed top-0 right-0 left-0 bg-transparent shadow-md z-[999]">
             <div className='max-w-[1280px] mx-auto'>
                 <nav className=' p-4 flex justify-between items-center '>
                     <motion.h1

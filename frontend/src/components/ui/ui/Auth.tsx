@@ -15,20 +15,31 @@ const Auth = ({type}:{type:"Signup" | "Signin"}) => {
         password:""
     }); 
 
-    async function sendRequest(){
-      try{
-        const response=await axios.post(`${BACKEND_URL}/api/v1/user/${type==="Signup"?"signup":"signin"}`,postInputs)
-        const jwt=response.data;
-        localStorage.setItem("Authorization",jwt);
-        console.log(jwt);
-        navigate("/blogs")
-      }catch(e){
-        console.log(e)
+    async function sendRequest() {
+      try {
+        const response = await axios.post(
+          `${BACKEND_URL}/api/v1/user/${type === "Signup" ? "signup" : "signin"}`,
+          postInputs
+        );
+        
+        // Assuming the JWT is in response.data.token
+        const jwt = response.data.token?.jwt || response.data.jwt;
+        console.log(response.data.token?.jwt)
+        console.log(response.data.jwt)
+        if (jwt) {
+          localStorage.setItem("Authorization", `${jwt}`);
+          navigate("/blogs");
+        } else {
+          console.error("No token received");
+        }
+      } catch (e) {
+        console.error("Auth error:", e);
+        // Add error handling here - maybe show a toast message
       }
-    } 
+    }
 
     return (
-    <div className='flex flex-col p-8 shadow-xl bg-gray-500 border-1 border-white rounded-lg max-w-[500px]'>
+    <div className='flex flex-col p-8 shadow-xl bg-zinc-300 border-1 border-white rounded-lg max-w-[500px]'>
       <h2 className='text-3xl font-extrabold'>
         Create an Account
       </h2>

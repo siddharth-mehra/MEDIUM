@@ -30,7 +30,7 @@ const Homepage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-zinc-900 via-zinc-300 to-zinc-600">
+      <section className="py-20 px-4 bg-gradient-to-br from-zinc-900 via-zinc-600 to-zinc-200">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-5xl font-bold text-white mb-6">
             Where good ideas find you
@@ -97,7 +97,7 @@ const Homepage: React.FC = () => {
       </section>
 
       {/* Categories Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-gray-500">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold mb-8">Discover more of what matters to you</h2>
           <div className="flex flex-wrap gap-4">
@@ -105,7 +105,7 @@ const Homepage: React.FC = () => {
               <Link
                 key={category}
                 to={`/category/${category.toLowerCase()}`}
-                className="px-6 py-2 rounded-full bg-white border border-gray-200 hover:border-indigo-600 hover:text-indigo-600 transition-colors"
+                className="px-6 py-2 rounded-full text-black bg-white border border-gray-200 hover:border-indigo-600 hover:text-indigo-600 transition-colors"
               >
                 {category}
               </Link>

@@ -1,6 +1,8 @@
 import { BlogProp } from '@/hooks'
 import { formatDate } from '@/lib/utils' // You'll need to create this utility
 import { CalendarDays, Clock, User } from 'lucide-react'
+import { Link } from "react-router-dom";
+import { Edit } from "lucide-react"; // Import the edit icon
 
 interface IndividualBlogProps {
     blog: BlogProp | undefined
@@ -13,7 +15,10 @@ const Individualblog = ({ blog }: IndividualBlogProps) => {
                 {/* Main Content */}
                 <article className="lg:col-span-8 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 space-y-6">
                     <header className="space-y-4 border-b border-gray-200 pb-6">
-                        <h1 className='font-extrabold text-4xl text-gray-800'>{blog?.title}</h1>
+                        <div className="flex justify-between items-start">
+                            <h1 className='font-extrabold text-3xl text-gray-800'>{blog?.title}</h1>
+                            
+                        </div>
                         <div className="flex items-center space-x-4 text-gray-600">
                             <div className="flex items-center">
                                 <CalendarDays className="w-4 h-4 mr-2" />
@@ -21,9 +26,16 @@ const Individualblog = ({ blog }: IndividualBlogProps) => {
                             </div>
                             <div className="flex items-center">
                                 <Clock className="w-4 h-4 mr-2" />
-                                <span>{Math.ceil(blog?.content.length || 0 / 200)} min read</span>
                             </div>
                         </div>
+                        <Link 
+                                to={`/edit/${blog?.id}`}
+                                className="flex items-center gap-2 w-[200px] px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+                            >
+                                <Edit className="w-4 h-4" />
+                                <span>Edit Post</span>
+                            </Link>
+
                     </header>
 
                     <div className="prose prose-lg max-w-none">

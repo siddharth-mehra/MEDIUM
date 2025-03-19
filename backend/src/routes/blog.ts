@@ -112,6 +112,7 @@ blogRouter.post('/create',async (c) => {
       c.status(403);
       return c.json({error:"invalid input"});
     }
+    console.log(body);
     const prisma = new PrismaClient({
       datasourceUrl:c.env.DATABASE_URL,
     }).$extends(withAccelerate())
