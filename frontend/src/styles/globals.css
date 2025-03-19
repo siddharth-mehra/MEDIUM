@@ -1,0 +1,12 @@
+.editor-container {
+  @apply relative rounded-lg overflow-hidden;
+}
+
+.editor-container [contenteditable="true"] {
+  @apply min-h-[inherit] outline-none;
+}
+
+/* Dark mode styles */
+.dark .editor-container [contenteditable="true"] {
+  @apply bg-gray-700 text-white;
+}

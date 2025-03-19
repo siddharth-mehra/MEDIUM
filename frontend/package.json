@@ -15,7 +15,9 @@
     "@mui/material": "^6.4.7",
     "@radix-ui/react-slot": "^1.1.2",
     "@siddharthmehra/mid11common": "^1.0.1",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/postcss": "^4.0.11",
+    "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.11",
     "axios": "^1.8.2",
     "class-variance-authority": "^0.7.1",
@@ -27,6 +29,7 @@
     "react-router-dom": "^7.3.0",
     "react-simple-wysiwyg": "^3.2.0",
     "recoil": "^0.7.7",
+    "sonner": "^2.0.1",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7"
   },

@@ -15,12 +15,12 @@ const Navbar = () => {
         }
     }, [isChecked])
 
-    const handleToggle = () => {
+    const handleToggle:()=>void = () => {
         setIsChecked(!isChecked);
     };
 
     return (
-        <div className="fixed top-0 left-0 right-0 bg-transparent shadow-md z-[999]">
+        <div className="fixed top-0 right-0 left-0 bg-white shadow-md z-[999]">
             <div className='max-w-[1280px] mx-auto'>
                 <nav className=' p-4 flex justify-between items-center '>
                     <motion.h1
@@ -29,8 +29,8 @@ const Navbar = () => {
                         transition={{ duration: 1, ease: "easeInOut" }}
                         className='text-3xl font-extrabold'
                     >
-                        <p className='text-4xl font-extrabold bg-gradient-to-r from-indigo-900 via-purple-600 to-pink-600 inline-block 
-                        text-transparent bg-clip-text hover:from-pink-500 hover:via-purple-500 hover:to-indigo-700 
+                        <p className='text-4xl font-extrabold bg-gradient-to-r from-zinc-900 via-zinc-300 to-zinc-600 inline-block 
+                        text-transparent bg-clip-text 
                         transition-shadow duration-1500'> AiBlogs</p>
                     </motion.h1>
                     <div className='flex space-x-2 items-center'>

@@ -19,7 +19,8 @@ const Auth = ({type}:{type:"Signup" | "Signin"}) => {
       try{
         const response=await axios.post(`${BACKEND_URL}/api/v1/user/${type==="Signup"?"signup":"signin"}`,postInputs)
         const jwt=response.data;
-        localStorage.setItem("token",jwt);
+        localStorage.setItem("Authorization",jwt);
+        console.log(jwt);
         navigate("/blogs")
       }catch(e){
         console.log(e)
@@ -27,7 +28,7 @@ const Auth = ({type}:{type:"Signup" | "Signin"}) => {
     } 
 
     return (
-    <div className='flex flex-col p-8 shadow-xl border-1 border-white rounded-sm max-w-[500px]'>
+    <div className='flex flex-col p-8 shadow-xl bg-gray-500 border-1 border-white rounded-lg max-w-[500px]'>
       <h2 className='text-3xl font-extrabold'>
         Create an Account
       </h2>
@@ -49,7 +50,7 @@ const Auth = ({type}:{type:"Signup" | "Signin"}) => {
         }}/>
       </div>
       <div className='pt-5 '>
-        <Button className='w-full py-5' onClick={sendRequest} >
+        <Button className='w-full py-5 bg-gray-600 text-white' onClick={sendRequest} >
             {type}            
         </Button>
       </div>

@@ -1,25 +1,62 @@
-
 import { BlogProp } from '@/hooks'
+import { formatDate } from '@/lib/utils' // You'll need to create this utility
+import { CalendarDays, Clock, User } from 'lucide-react'
 
-interface IndividualBlogProps{
-    blog:BlogProp|undefined
+interface IndividualBlogProps {
+    blog: BlogProp | undefined
 }
-const Individualblog = ({blog}:IndividualBlogProps) => {
-    
-  return (
-    <div className='grid grid-cols-12 pt-10'>
-      <div className="grid col-span-8 bg-gray-200 p-10 space-y-2">
-        <h1 className='font-extrabold text-3xl'>{blog?.title}</h1>
-        <p>{`Posted on ${blog?.createdAt}`}</p>
-        <p className='font-extralight'>{blog?.content}</p>
-      </div>
-      <div className='grid bg-amber-200 col-span-4 p-4 '>
-        <h1 className='text-3xl font-semibold '>{blog?.author.name}</h1>
-        <p className='text-xm text-zinc-600'>Master of earth,Purvyer of puns,and the
-            funniest person in the kingdom </p>
-      </div>
-    </div>
-  )
+
+const Individualblog = ({ blog }: IndividualBlogProps) => {
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-zinc-900 via-zinc-300 to-zinc-600 bg-opacity-10 py-10 px-4">
+            <div className='max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8'>
+                {/* Main Content */}
+                <article className="lg:col-span-8 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 space-y-6">
+                    <header className="space-y-4 border-b border-gray-200 pb-6">
+                        <h1 className='font-extrabold text-4xl text-gray-800'>{blog?.title}</h1>
+                        <div className="flex items-center space-x-4 text-gray-600">
+                            <div className="flex items-center">
+                                <CalendarDays className="w-4 h-4 mr-2" />
+                                <time>{formatDate(blog?.createdAt)}</time>
+                            </div>
+                            <div className="flex items-center">
+                                <Clock className="w-4 h-4 mr-2" />
+                                <span>{Math.ceil(blog?.content.length || 0 / 200)} min read</span>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div className="prose prose-lg max-w-none">
+                        <p className='leading-relaxed text-gray-700'>{blog?.content}</p>
+                    </div>
+                </article>
+
+                {/* Author Sidebar */}
+                <aside className='lg:col-span-4 space-y-6'>
+                    <div className='bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6'>
+                        <div className="flex items-center space-x-4 mb-4">
+                            <div className="h-12 w-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                                <User className="h-6 w-6 text-white" />
+                            </div>
+                            <div>
+                                <h2 className='text-xl font-semibold text-gray-800'>{blog?.author.name}</h2>
+                                <p className='text-sm text-gray-600'>Author</p>
+                            </div>
+                        </div>
+                        <p className='text-sm text-gray-600 leading-relaxed'>
+                            Master of earth, Purveyor of puns, and the funniest person in the kingdom
+                        </p>
+                    </div>
+
+                    {/* You can add more sidebar components here */}
+                    <div className='bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6'>
+                        <h3 className="text-lg font-semibold mb-4">More from this author</h3>
+                        {/* Add more blog posts by the same author here */}
+                    </div>
+                </aside>
+            </div>
+        </div>
+    )
 }
 
 export default Individualblog

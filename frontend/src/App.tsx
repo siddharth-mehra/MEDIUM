@@ -6,21 +6,16 @@ import Blogs  from './pages/Blogs'
 import './App.css'
 import Navbar from './components/ui/ui/Navbar.tsx'
 import CustomEditor from './components/ui/ui/Publish.tsx'
-import Homepage from './pages/Home/Homepage.tsx'
-import {BackgroundBoxesDemo} from './pages/Home/Background.tsx'
+import  Homepage  from './pages/Home/Homepage.tsx'
 
 function App() {
   return(
     <BrowserRouter>
-      <div className='min-h-screen w-full relative bg-gradient-to-br from-indigo-500 via-white to-indigo-500  dark:from-zinc-900 dark:via-white dark:to-zinc-900'>
-        {/* Background Image Container */}
-        
-        <div className='fixed inset-0 z-0 pointer-events-none'>
-          <BackgroundBoxesDemo/>
-        </div>
+      <div className='relative min-h-screen bg-linear-120
+       from-white to-gray-300'>
         {/* Main Content */}
         <Navbar/>
-        <div className='w-full max-w-[1280px] mx-auto pt-20 relative z-10'>
+        <div className='max-w-[1280px] mx-auto pt-20 relative z-10'>
           <Routes>
             <Route path='/' element={<Homepage/>} />
             <Route path="/Signup" element={<Signup/>} />
